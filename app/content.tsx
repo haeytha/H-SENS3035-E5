@@ -4,6 +4,9 @@ import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactPlayer from 'react-player';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { MapContainer, TileLayer, useMap, Marker , Popup} from 'react-leaflet';
+import { LatLngExpression } from 'leaflet';
+import "leaflet/dist/leaflet.css";
 
 const data = [
     {
@@ -49,6 +52,8 @@ const data = [
         amt: 2100,
     },
 ];
+
+const position: LatLngExpression = [51.505, -0.09];
 export default function Content() {
     return (
         <>
@@ -61,11 +66,27 @@ export default function Content() {
                 <div className="container">
                     <h2>Practice 2</h2>
                     <div className="row">
-                        <div className="col-6">
-                            [MAP HERE]
+                        <div className="col-6" style={{
+                            height:500
+                        }}>
+                            const position = [51.505, -0.09]
+
+                            render(
+                            <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{height:500}}>
+                                <TileLayer
+                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                />
+                                <Marker position={position}>
+                                    <Popup>
+                                        A pretty CSS3 popup. <br /> Easily customizable.
+                                    </Popup>
+                                </Marker>
+                            </MapContainer>
+                            )
                         </div>
                         <div className="col-6">
-                            <ResponsiveContainer width="100%"  minHeight={400}>
+                            <ResponsiveContainer width="100%" minHeight={400}>
                                 <LineChart
                                     width={500}
                                     height={300}
@@ -92,9 +113,6 @@ export default function Content() {
                         </div>
                     </div>
                 </div>
-
-
-
 
             </main>
 
