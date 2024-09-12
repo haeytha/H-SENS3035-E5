@@ -1,7 +1,8 @@
 "use client";
+import React from "react";
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import React from "react";
+import ReactPlayer from 'react-player';
 
 export default function Content() {
     return (
@@ -22,7 +23,7 @@ export default function Content() {
                         [CART HERE]
                     </div>
                     <div className="col-12">
-                        [PLAYER HERE]
+                    <ReactPlayer url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
                     </div>
                 </div>
                 </div>
