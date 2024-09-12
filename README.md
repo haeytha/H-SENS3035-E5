@@ -6,3 +6,5 @@
 > You can use duplicate this repo as a starting point.
 <!-- npm i bootstrap -->
 <!-- npm install react-player -->
+<!-- npm install recharts -->
+
